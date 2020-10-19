@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang = "en">
+<html lang="en">
   <head>
     <title>Lunch Checker</title>
     <script src="angular.min.js"></script>
@@ -11,19 +11,19 @@
     </style>
   </head>
 <body ng-app="LunchCheck">
-  <h1>Lunch Checker</h1>
-   <div ng-controller='LunchCheckController'>
+   <div class="container" ng-controller='LunchCheckController'>
+    <h1>Lunch Checker</h1>
         <div>
           Please note that an empty entry between two commas is not counted as a lunch object.  Example case : " , , " would not be counted.
         </div>
          <div class="form-group">
-             <input type="text"
+             <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
              ng-model="lunch"
              class="form-control">
          </div>
          <div class="form-group">
-             <button ng-click="checkAmount()">Check If Too Much</button>
+             <button class="btn btn-default" ng-click="checkAmount()">Check If Too Much</button>
          </div>
          <div class="form-group message">
            {{response}}
