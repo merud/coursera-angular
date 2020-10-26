@@ -44,12 +44,12 @@
         }
 
         service.removeItem = function (itemIndex) {
-            var item = itemsToBuy.splice(itemIndex, 1);
+            var item = itemsToBuy.splice(itemIndex, 1)[0];
             return item;
         }
 
         service.addItem = function (item) {
-            itemsBought.push(item[0]);
+            itemsBought.push(item);
         }
 
         service.getItemsToBuy = function () {
