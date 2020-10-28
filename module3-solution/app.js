@@ -3,12 +3,25 @@
 
     angular.module('NarrowItDownApp', [])
         .controller('NarrowItDownController', NarrowItDownController)
-        .service('MenuSearchService', MenuSearchService);
+        .service('MenuSearchService', MenuSearchService)
+        .directive('foundItems', FoundItems);
+
+    function FoundItems() {
+        var ddo = {
+            templateUrl: 'foundItems.html',
+            scope: {
+                list: '<',
+                searchTerm: "<",
+                onRemove: '&'
+            }
+        };
+        return ddo;
+    }
 
     NarrowItDownController.$inject = ['MenuSearchService'];
     function NarrowItDownController(MenuSearchService) {
         var narrowItDown = this;
-
+        
         narrowItDown.narrowDown = function () {
             var promise = MenuSearchService.getMatchedMenuItems(narrowItDown.searchTerm);
             promise.then(function (response) {
@@ -16,6 +29,10 @@
             }).catch(function () {
                 console.log("something went wrong");
             })
+        }
+
+        narrowItDown.removeItem = function (index) {
+            narrowItDown.found.splice(index, 1);
         }
     }
 
@@ -34,8 +51,10 @@
                 var foundItems = [];
 
                 listItems.forEach(function (element) {
-                    if (element.description.includes(searchTerm.toLowerCase())) {
-                        foundItems.push(element);
+                    if (searchTerm) {
+                        if (element.description.includes(searchTerm.toLowerCase())) {
+                            foundItems.push(element);
+                        }
                     }
                 })
                 // return processed items
