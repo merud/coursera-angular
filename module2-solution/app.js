@@ -22,7 +22,6 @@
         var hasBought = this;
 
         hasBought.items = ShoppingListCheckOffService.getItemsBought();
-
     }
 
     function ShoppingListCheckOffService() {
