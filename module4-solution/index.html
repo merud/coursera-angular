@@ -5,9 +5,9 @@
   <title>Restaurant Site</title>
 </head>
 
-<script src="app.js"></script>
+<body ng-app="MenuApp">
 
-<body>
+  <ui-view></ui-view>
 
 </body>
 
@@ -16,6 +16,19 @@
 <script src="lib/angular-ui-router.min.js"></script>
 
 <!-- Modules -->
-<script src="src/app.js"></script>
+<script src="src/menuapp/menuapp.module.js"></script>
+<script src="src/data/data.module.js"></script>
+
+<!-- Routes -->
+<script src="src/routes.js"></script>
+
+<!-- 'MenuApp' module artifacts -->
+<script src="src/menuapp/categories.component.js"></script>
+<script src="src/menuapp/main-categories.controller.js"></script>
+<script src="src/menuapp/items.component.js"></script>
+<script src="src/menuapp/main-items.controller.js"></script>
+
+<!-- 'Data' module artifacts -->
+<script src="src/data/menudata.service.js"></script>
 
 </html>
