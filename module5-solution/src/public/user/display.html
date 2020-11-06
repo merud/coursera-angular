@@ -1,6 +1,6 @@
 <h1>Here is your account information</h1>
 
-<div ng-if="userDisplay.firstName">
+<div class="container" ng-if="userDisplay.firstName">
     First Name: {{ userDisplay.firstName}} <br>
     Last Name: {{ userDisplay.lastName}} <br>
     Email: {{ userDisplay.email}} <br>
@@ -10,7 +10,7 @@
     Favorite Item Description: {{ userDisplay.favorite.description }} <br>
     <img ng-src="https://merud-course5.herokuapp.com/images/{{ userDisplay.favorite.short_name }}.jpg" alt="{{userDisplay.favorite.name}}">
 </div>
-<div ng-if="!userDisplay.firstName">
+<div class="container" ng-if="!userDisplay.firstName">
     Not Signed Up Yet. 
     <a ui-sref="public.signup">Sign up Now!</a>
 </div>

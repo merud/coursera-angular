@@ -1,7 +1,7 @@
 <h1>Please enter the following information and sign up for our Newsletter!</h1>
 
 <fieldset>
-    <form name='signupForm' novalidate>
+    <form class="container" name='signupForm' novalidate>
 
         <input type="text" name="firstName" placeholder="First Name" ng-model="signup.user.firstName" required
             minlength="1" ng-maxlength="50">
@@ -38,28 +38,24 @@
         </span>
         <br>
 
-        <input type="text" name="favorite" placeholder="favorite menu item shortname" ng-model="signup.user.favorite"
+        <input type="text" name="favoriteShort" placeholder="Favorite Menu Item" ng-model="signup.user.favoriteShort"
             required minlength="1" ng-maxlength="50">
         <span
-            ng-if="(signupForm.favorite.$error.minlength || signupForm.favorite.$error.required) && signupForm.favorite.$touched">
+            ng-if="(signupForm.favoriteShort.$error.minlength || signupForm.favoriteShort.$error.required) && signupForm.favoriteShort.$touched">
             A value must be entered for the Menu Number of the Favorite Dish.
         </span>
-        <span ng-if="signupForm.favorite.$error.maxlength && signupForm.favorite.$touched">
+        <span ng-if="signupForm.favoriteShort.$error.maxlength && signupForm.favoriteShort.$touched">
             Menu Number of Favorite Dish has a max of 50 characters.
         </span>
         <span ng-if="signup.attempted">
-            Please enter a valid Menu Number for the Favorite Dish.
+            No such menu number exists.
         </span>
         <br>
 
-        <button ng-disabled="signupForm.$invalid" ng-click="signup.submit(signup.user.favorite)">Submit</button>
-
-        <div style="margin-top: 10px;">
-            Form valid? {{ signupForm.$valid }}
-        </div>
+        <button ng-disabled="signupForm.$invalid" ng-click="signup.submit(signup.user.favoriteShort)">Submit</button>
     </form>
 </fieldset>
 
-<div id="info" ng-if="signup.completed">
+<div class="container" id="info" ng-if="signup.completed">
     Your information has been saved.
 </div>

@@ -11,7 +11,7 @@
         signup.submit = async function () {
             signup.attempted = false;
             //testing MenuService Check Here
-            favItem = await MenuService.getItemByShortName(signup.user.favorite);
+            favItem = await MenuService.getItemByShortName(signup.user.favoriteShort);
             signup.attempted = true;
             if(favItem){
                 signup.attempted = false;

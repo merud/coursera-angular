@@ -5,6 +5,15 @@ body {
   font-family: 'Oxygen', sans-serif;
 }
 
+input {
+  margin-bottom: 10px;
+  color: #000;
+}
+
+h1 {
+  text-align: center;
+}
+
 .initial-loading {
   margin-top: 60px;
 }
