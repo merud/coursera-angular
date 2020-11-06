@@ -4,8 +4,11 @@
     First Name: {{ userDisplay.firstName}} <br>
     Last Name: {{ userDisplay.lastName}} <br>
     Email: {{ userDisplay.email}} <br>
-    Phone: {{ userDisplay.phone }}
-    <!-- Favorite Item: {{ signup.user.favorite }} -->
+    Phone: {{ userDisplay.phone }} <br>
+    Favorite Item Short Name: {{ userDisplay.favorite.short_name }} <br>
+    Favorite Item Name: {{ userDisplay.favorite.name }} <br>
+    Favorite Item Description: {{ userDisplay.favorite.description }} <br>
+    <img ng-src="https://merud-course5.herokuapp.com/images/{{ userDisplay.favorite.short_name }}.jpg" alt="{{userDisplay.favorite.name}}">
 </div>
 <div ng-if="!userDisplay.firstName">
     Not Signed Up Yet. 

@@ -1,12 +1,10 @@
 <h1>Please enter the following information and sign up for our Newsletter!</h1>
 
 <fieldset>
-    <legend>Registration</legend>
     <form name='signupForm' novalidate>
 
         <input type="text" name="firstName" placeholder="First Name" ng-model="signup.user.firstName" required
             minlength="1" ng-maxlength="50">
-        {{ signup.user.firstName }}
         <span
             ng-if="(signupForm.firstName.$error.minlength || signupForm.firstName.$error.required) && signupForm.firstName.$touched">
             A value must be entered for the First Name.
@@ -18,7 +16,6 @@
 
         <input type="text" name="lastName" placeholder="Last Name" ng-model="signup.user.lastName" required
             minlength="1" ng-maxlength="50">
-        {{ signup.user.lastName }}
         <span
             ng-if="(signupForm.lastName.$error.minlength || signupForm.lastName.$error.required) && signupForm.lastName.$touched">
             A value must be entered for the Last Name.
@@ -41,7 +38,21 @@
         </span>
         <br>
 
-        <button ng-disabled="signupForm.$invalid" ng-click="signup.submit()">Submit</button>
+        <input type="text" name="favorite" placeholder="favorite menu item shortname" ng-model="signup.user.favorite"
+            required minlength="1" ng-maxlength="50">
+        <span
+            ng-if="(signupForm.favorite.$error.minlength || signupForm.favorite.$error.required) && signupForm.favorite.$touched">
+            A value must be entered for the Menu Number of the Favorite Dish.
+        </span>
+        <span ng-if="signupForm.favorite.$error.maxlength && signupForm.favorite.$touched">
+            Menu Number of Favorite Dish has a max of 50 characters.
+        </span>
+        <span ng-if="signup.attempted">
+            Please enter a valid Menu Number for the Favorite Dish.
+        </span>
+        <br>
+
+        <button ng-disabled="signupForm.$invalid" ng-click="signup.submit(signup.user.favorite)">Submit</button>
 
         <div style="margin-top: 10px;">
             Form valid? {{ signupForm.$valid }}
@@ -50,9 +61,5 @@
 </fieldset>
 
 <div id="info" ng-if="signup.completed">
-    First Name: {{ signup.user.firstName}} <br>
-    Last Name: {{ signup.user.firstName}} <br>
-    Email: {{ signup.user.email}} <br>
-    Phone: {{ signup.user.phone }}
-    <!-- Favorite Item: {{ signup.user.favorite }} -->
+    Your information has been saved.
 </div>

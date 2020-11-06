@@ -19,6 +19,7 @@
             userDisplay.lastName = user.lastName;
             userDisplay.email = user.email;
             userDisplay.phone = user.phone;
+            userDisplay.favorite = user.favorite;
         }
 
 
