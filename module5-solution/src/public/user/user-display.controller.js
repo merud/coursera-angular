@@ -6,18 +6,20 @@
 
     UserDisplayController.$inject = ['ProfileService', 'MenuService'];
     function UserDisplayController(ProfileService, MenuService) {
-        var $ctrl = this;
+        var userDisplay = this;
+        var user;
 
         //Pull the Profile information from the ProfileService
 
+        user = ProfileService.getUser();
 
-        //Assign the values from the ProfileService to be displayed in the html
-
-
-        //Pull/Assign the values from the MenuService relevant to the favorite item (picture, name, etc)
-
-        
-        //Have all values displayed via component
+        //Assign the user information to the controller to display
+        if (user) {
+            userDisplay.firstName = user.firstName;
+            userDisplay.lastName = user.lastName;
+            userDisplay.email = user.email;
+            userDisplay.phone = user.phone;
+        }
 
 
     }

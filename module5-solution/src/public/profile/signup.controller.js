@@ -6,10 +6,15 @@
 
     SignupController.$inject = ['ProfileService', 'MenuService'];
     function SignupController(ProfileService, MenuService) {
-        var $ctrl = this;
+        var signup = this;
+
+        signup.submit = function () {
+            signup.completed = true;
+            ProfileService.addUser(signup.user);
+          };
 
         //Get Profile Values from Form Component to create a user profile validated in angular way
-
+          
 
         //Check the favorite item shortname in MenuService for validity
 

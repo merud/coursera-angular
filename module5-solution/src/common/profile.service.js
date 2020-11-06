@@ -7,10 +7,18 @@
 
     function ProfileService() {
         var service = this;
+        //stores the user object between controllers
+        var storedUser;
 
-        //Function to Assign values passed from controllers into a profile
+        //takes the user object as a value and stores it
+        service.addUser = function (user) {
+            storedUser = user;
+        }
 
-        //Function to Return values that comprise a profile
+        //returns the user stored in the users array
+        service.getUser = function () {
+            return storedUser;
+        }
 
     }
 })();
